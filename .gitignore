@@ -1,0 +1,14 @@
+#gitignore settings for code repo
+
+#ignore all log files
+*.log
+
+#ignore files in the temp dir
+temp/
+
+#ignore the env files
+.env
+
+#ignore vs-code workspace files
+*.code-workspace
+
