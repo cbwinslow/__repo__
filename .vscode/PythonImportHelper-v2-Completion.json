@@ -1,0 +1,72 @@
+[
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "is_valid_url",
+        "kind": 2,
+        "importPath": "url_tools.url_processor",
+        "description": "url_tools.url_processor",
+        "peekOfCode": "def is_valid_url(url):\n    \"\"\"Check if the given string is a valid URL.\"\"\"\n    try:\n        result = urlparse(url)\n        return all([result.scheme, result.netloc])\n    except ValueError:\n        return False\ndef process_url(url, exe_path):\n    \"\"\"Process a single URL using the provided executable.\"\"\"\n    try:",
+        "detail": "url_tools.url_processor",
+        "documentation": {}
+    },
+    {
+        "label": "process_url",
+        "kind": 2,
+        "importPath": "url_tools.url_processor",
+        "description": "url_tools.url_processor",
+        "peekOfCode": "def process_url(url, exe_path):\n    \"\"\"Process a single URL using the provided executable.\"\"\"\n    try:\n        result = subprocess.run([exe_path, url], capture_output=True, text=True, timeout=300)\n        if result.returncode == 0:\n            logging.info(f\"Successfully processed URL: {url}\")\n        else:\n            logging.error(f\"Error processing URL: {url}. Error: {result.stderr}\")\n    except subprocess.TimeoutExpired:\n        logging.warning(f\"Timeout while processing URL: {url}\")",
+        "detail": "url_tools.url_processor",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "url_tools.url_processor",
+        "description": "url_tools.url_processor",
+        "peekOfCode": "def main(url_file, exe_path):\n    \"\"\"Main function to process URLs from a file.\"\"\"\n    try:\n        with open(url_file, 'r') as file:\n            for line in file:\n                url = line.strip()\n                if not url:\n                    continue\n                if not is_valid_url(url):\n                    logging.warning(f\"Invalid URL skipped: {url}\")",
+        "detail": "url_tools.url_processor",
+        "documentation": {}
+    }
+]
