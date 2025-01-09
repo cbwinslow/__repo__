@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+"""
+Daemon to log installed package details on Arch Linux and store them in YAML format.
+
+Author: CBW
+Date: 2025-01-09
+Purpose: Monitor installed packages and automatically update a YAML configuration file.
+"""
+
+import os
+import subprocess
+import yaml
+import time
+import datetime
+import hashlib
+import logging
+from pathlib import Path
+
+# Configuration
+LOG_FILE = "/var/log/package_daemon.log"
+YAML_FILE = "/etc/package_config.yaml"
+CHECK_INTERVAL = 3600  # Check every hour (in seconds)
+
+# Set up logging
+logging.basicConfig(
+    filename=LOG_FILE,
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+
+def run_command(command):
+    """Run a shell command and return its output."""
+    try:
+        result = subp
