@@ -1,0 +1,21 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\bwinslow> ping 100.112.182.41
+
+Pinging 100.112.182.41 with 32 bytes of data:
+Request timed out.
+Request timed out.
+
+Ping statistics for 100.112.182.41:
+    Packets: Sent = 2, Received = 0, Lost = 2 (100% loss),
+Control-C
+PS C:\Users\bwinslow> ^C
+PS C:\Users\bwinslow> nslookup 100.112.182.41
+Server:  DUNCANAUTODC01.DuncanAuto.local
+Address:  10.254.70.10
+
+*** DUNCANAUTODC01.DuncanAuto.local can't find 100.112.182.41: Non-existent domain
+PS C:\Users\bwinslow>
